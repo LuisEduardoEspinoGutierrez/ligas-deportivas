@@ -31,6 +31,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
+                .cors(cors -> {})
                 .csrf(csrf -> csrf.disable());
 
         http.sessionManagement(sm ->
@@ -42,6 +43,7 @@ public class SecurityConfig {
                 // -----------------------------------------
                 // ENDPOINTS PÚBLICOS (Login y Register)
                 // -----------------------------------------
+                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .requestMatchers("/api/auth/**").permitAll()
                 .requestMatchers("/").permitAll()
 
@@ -120,4 +122,3 @@ public class SecurityConfig {
         return config.getAuthenticationManager();
     }
 }
-
