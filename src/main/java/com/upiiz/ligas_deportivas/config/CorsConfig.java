@@ -21,6 +21,7 @@ public class CorsConfig {
         config.addAllowedOrigin("https://ligas-deportivas.onrender.com");
          config.addAllowedOrigin("https://ejercicio-10-angular-crud-remoto-examen.onrender.com");
 
+        config.setAllowedHeaders(List.of("*"));
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
 
