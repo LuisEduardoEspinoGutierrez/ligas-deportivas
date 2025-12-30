@@ -44,7 +44,9 @@ public class SecurityConfig {
                 // ENDPOINTS PÚBLICOS (Login y Register)
                 // -----------------------------------------
                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                .requestMatchers("/api/auth/**").permitAll()
+                .requestMatchers("/api/auth/**",  
+                                 "/api/auth/login",
+                                "/api/auth/register").permitAll()
                 .requestMatchers("/").permitAll()
 
                 // -----------------------------------------
@@ -86,7 +88,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.DELETE, "/api/equipos/**").authenticated()
                 .requestMatchers(HttpMethod.PUT, "/api/entrenadores/**").authenticated()
                 .requestMatchers(HttpMethod.DELETE, "/api/entrenadores/**").authenticated()
-                //.requestMatchers(HttpMethod.PUT, "/api/partidos/**").authenticated()
+                .requestMatchers(HttpMethod.PUT, "/api/partidos/**").authenticated()
                 .requestMatchers(HttpMethod.DELETE, "/api/partidos/**").authenticated()
 
 
