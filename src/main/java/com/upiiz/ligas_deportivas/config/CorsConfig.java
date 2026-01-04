@@ -17,23 +17,21 @@ public class CorsConfig {
         CorsConfiguration config = new CorsConfiguration();
 
         config.setAllowCredentials(true);
-        config.addAllowedOrigin("http://localhost:4200");
-        config.addAllowedOrigin("https://ligas-deportivas.onrender.com");
-        config.addAllowedOrigin("https://ejercicio-10-angular-crud-remoto-examen.onrender.com");
-        config.setAllowedOrigins(List.of("https://adminlte-angular.onrender.com"));
 
-        config.setAllowedHeaders(List.of("Origin", "Content-Type", "Accept", "Authorization"));
-
-        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        config.setAllowedOrigins(List.of(
+            "http://localhost:4200",
+            "https://ligas-deportivas.onrender.com",
+            "https://ejercicio-10-angular-crud-remoto-examen.onrender.com",
+            "https://adminlte-angular.onrender.com"
+        ));
 
         config.setAllowedHeaders(List.of("*"));
-        config.addAllowedHeader("*");
-        config.addAllowedMethod("*");
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 
-        UrlBasedCorsConfigurationSource source =
-                new UrlBasedCorsConfigurationSource();
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
 
         return new CorsFilter(source);
     }
 }
+
