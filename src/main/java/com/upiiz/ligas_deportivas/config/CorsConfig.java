@@ -19,7 +19,12 @@ public class CorsConfig {
         config.setAllowCredentials(true);
         config.addAllowedOrigin("http://localhost:4200");
         config.addAllowedOrigin("https://ligas-deportivas.onrender.com");
-         config.addAllowedOrigin("https://ejercicio-10-angular-crud-remoto-examen.onrender.com");
+        config.addAllowedOrigin("https://ejercicio-10-angular-crud-remoto-examen.onrender.com");
+        config.setAllowedOrigins(List.of("https://adminlte-angular.onrender.com"));
+
+        config.setAllowedHeaders(List.of("Origin", "Content-Type", "Accept", "Authorization"));
+
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 
         config.setAllowedHeaders(List.of("*"));
         config.addAllowedHeader("*");
